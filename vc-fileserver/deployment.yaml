@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vc-fileserver
+  namespace: vc-fileserver
+spec:
+  selector:
+    matchLabels:
+      app: vc-fileserver
+  template:
+    metadata:
+      labels:
+        app: vc-fileserver
+    spec:
+      containers:
+      - name: vc-fileserver
+        image: visiba.azurecr.io/visiba-care/fileservice:release_4.52.0-20220622075016-77139
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: config-volume
+          subPath: instance.json
+          mountPath: /app/Configurations/instance.json
+      imagePullSecrets:
+      - name: regcred
+      volumes:
+        - name: config-volume
+          configMap:
+            name: instance-configmap
