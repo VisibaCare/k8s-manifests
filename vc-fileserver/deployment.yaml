@@ -29,5 +29,8 @@ spec:
       - name: regcred
       volumes:
         - name: config-volume
-          configMap:
-            name: instance-configmap
+          # configMap:
+          #   name: instance-configmap
+          secret:
+            secretName: instance-config
+            
