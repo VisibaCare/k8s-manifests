@@ -33,4 +33,3 @@ jobs:
         with:
           path: "**/*.yaml"
           isKustomization: true
-          kustomizeArguments: "--only-k8s-files"
