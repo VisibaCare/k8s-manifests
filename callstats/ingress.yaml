@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: callstats-ingress
+  namespace: callstats
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - c.analytics.visibacare.com
+      secretName: c.analytics.visibacare.com-tls
+  rules:
+    - host: c.analytics.visibacare.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: callstats
+                port:
+                  number: 80
