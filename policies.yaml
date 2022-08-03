@@ -24,10 +24,10 @@ policies:
         messageOnFailure: Incorrect value for key(s) under `labels` - the vales syntax is not valid so the Kubernetes engine will not accept it
       - identifier: WORKLOAD_INCORRECT_RESTARTPOLICY_VALUE_ALWAYS
         messageOnFailure: Incorrect value for key `restartPolicy` - any other value than `Always` is not supported by this resource
-      - identifier: CONTAINERS_MISSING_LIVENESSPROBE_KEY
-        messageOnFailure: Missing property object `livenessProbe` - add a properly configured livenessProbe to catch possible deadlocks
-      - identifier: CONTAINERS_MISSING_READINESSPROBE_KEY
-        messageOnFailure: Missing property object `readinessProbe` - add a properly configured readinessProbe to notify kubelet your Pods are ready for traffic
+      #- identifier: CONTAINERS_MISSING_LIVENESSPROBE_KEY
+      #   messageOnFailure: Missing property object `livenessProbe` - add a properly configured livenessProbe to catch possible deadlocks
+      #- identifier: CONTAINERS_MISSING_READINESSPROBE_KEY
+      #  messageOnFailure: Missing property object `readinessProbe` - add a properly configured readinessProbe to notify kubelet your Pods are ready for traffic
       - identifier: HPA_MISSING_MINREPLICAS_KEY
         messageOnFailure: Missing property object `minReplicas` - the value should be within the accepted boundaries recommended by the organization
       # - identifier: HPA_MISSING_MAXREPLICAS_KEY

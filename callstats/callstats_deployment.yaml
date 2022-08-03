@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: callstats
-          image: visibacontainers.azurecr.io/visiba/callstats:latest
+          image: visibacontainers.azurecr.io/visiba/callstats:80701
           imagePullPolicy: Always
           resources:
             limits:
