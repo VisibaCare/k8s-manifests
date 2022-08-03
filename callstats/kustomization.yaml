@@ -4,3 +4,4 @@ resources:
   - ./callstats_deployment.yaml
   - ./callstats_service.yaml
   - ./callstats_namespace.yaml
+  - ./callstats_ingress.yaml

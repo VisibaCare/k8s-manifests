@@ -1,0 +1,8 @@
+name: Visiba Datree CLI
+description: Use the Datree CLI in a github action
+runs:
+  using: docker
+  image: Dockerfile
+branding:
+  icon: "terminal"
+  color: "black"

@@ -27,15 +27,17 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      - name: Run build script
+      - uses: VisibaCare/k8s-manifests@main
+#      - name: Run Datree Policy Check
+#        uses: datreeio/action-datree@main
+#        with:
+#          path: "**/*.yaml"
+#          cliArguments: "--only-k8s-files"
+#
 
-      - name: Run Datree Policy Check
-        uses: datreeio/action-datree@main
-        with:
-          path: "**/*.yaml"
-          cliArguments: "--only-k8s-files"
-
-  #     - name: Run Datree Policy Check
-  #       uses: datreeio/action-datree@main
-  #      with:
-  #         path: "**/*.yaml"
-  #         isKustomization: true
+#     - name: Run Datree Policy Check
+#       uses: datreeio/action-datree@main
+#      with:
+#         path: "**/*.yaml"
+#         isKustomization: true
