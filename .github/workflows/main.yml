@@ -32,7 +32,7 @@ jobs:
         uses: datreeio/action-datree@main
         with:
           path: "**/*.yaml"
-          cliArguments: "--only-k8s-files --ignore-missing-schemas"
+          cliArguments: "--only-k8s-files"
 
   #     - name: Run Datree Policy Check
   #       uses: datreeio/action-datree@main
