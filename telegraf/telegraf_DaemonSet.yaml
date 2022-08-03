@@ -17,6 +17,18 @@ spec:
       containers:
         - name: telegraf
           image: docker.io/telegraf:1.22.4
+          livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+            requests:
+              memory: 64Mi
+              cpu: 250m
+
           env:
             - name: HOSTNAME
               valueFrom:
