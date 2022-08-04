@@ -5,14 +5,5 @@ datree publish policies.yaml
 
 for d in */$Kustomize ; 
    do 
-      kubectl kustomize $(dirname $d)"/" | datree test - && echo Kustomize check for $d 
-done  
-
-
-
-
-
-
-
-
-
+      kubectl kustomize $(dirname $d)"/" | datree test - ; echo Kustomize check for $d 
+done

@@ -52,22 +52,22 @@ policies:
       #   messageOnFailure: 'Incorrect value for key `image` - add a digest tag (starts with `@sha256:`) to represent an immutable version of the image'
       - identifier: CRONJOB_MISSING_CONCURRENCYPOLICY_KEY
         messageOnFailure: Missing property object `concurrencyPolicy` - the behavior will be more deterministic if jobs won't run concurrently
-      # - identifier: K8S_INCORRECT_KIND_VALUE_POD
-      #   messageOnFailure: Incorrect value for key `kind` - raw pod won't be rescheduled in the event of a node failure
-      # - identifier: CONTAINERS_INCORRECT_HOSTPID_VALUE_TRUE
-      #   messageOnFailure: Incorrect value for key `hostPID` - running on the host's PID namespace enables access to sensitive information from processes running outside the container
-      # - identifier: CONTAINERS_INCORRECT_HOSTIPC_VALUE_TRUE
-      #   messageOnFailure: Incorrect value for key `hostIPC` - running on the host`s IPC namespace can be (maliciously) used to interact with other processes running outside the container
-      # - identifier: CONTAINERS_INCORRECT_HOSTNETWORK_VALUE_TRUE
-      #   messageOnFailure: Incorrect value for key `hostNetwork` - running on the host's network namespace can allow a compromised container to sniff network traffic
-      # - identifier: CONTAINERS_INCORRECT_RUNASUSER_VALUE_LOWUID
-      #   messageOnFailure: Incorrect value for key `runAsUser` - value should be above 9999 to reduce the likelihood that the UID is already taken
-      # - identifier: CONTAINERS_INCORRECT_PATH_VALUE_DOCKERSOCKET
-      #   messageOnFailure: Incorrect value for key `path` - avoid mounting the docker.socket becasue it can allow container breakout
+      - identifier: K8S_INCORRECT_KIND_VALUE_POD
+        messageOnFailure: Incorrect value for key `kind` - raw pod won't be rescheduled in the event of a node failure
+      - identifier: CONTAINERS_INCORRECT_HOSTPID_VALUE_TRUE
+        messageOnFailure: Incorrect value for key `hostPID` - running on the host's PID namespace enables access to sensitive information from processes running outside the container
+      - identifier: CONTAINERS_INCORRECT_HOSTIPC_VALUE_TRUE
+        messageOnFailure: Incorrect value for key `hostIPC` - running on the host`s IPC namespace can be (maliciously) used to interact with other processes running outside the container
+      - identifier: CONTAINERS_INCORRECT_HOSTNETWORK_VALUE_TRUE
+        messageOnFailure: Incorrect value for key `hostNetwork` - running on the host's network namespace can allow a compromised container to sniff network traffic
+      - identifier: CONTAINERS_INCORRECT_RUNASUSER_VALUE_LOWUID
+        messageOnFailure: Incorrect value for key `runAsUser` - value should be above 9999 to reduce the likelihood that the UID is already taken
+      - identifier: CONTAINERS_INCORRECT_PATH_VALUE_DOCKERSOCKET
+        messageOnFailure: Incorrect value for key `path` - avoid mounting the docker.socket becasue it can allow container breakout
       # - identifier: CONFIGMAP_CVE2021_25742_INCORRECT_SNIPPET_ANNOTATIONS_VALUE
       #   messageOnFailure: Missing property object `allow-snippet-annotations` - set it to "false" to override default behaviour
-      # - identifier: INGRESS_CVE2021_25742_INCORRECT_SERVER_SNIPPET_KEY
-      #   messageOnFailure: Forbidden property object `server-snippet` - ingress-nginx custom snippets are not allowed
+      - identifier: INGRESS_CVE2021_25742_INCORRECT_SERVER_SNIPPET_KEY
+        messageOnFailure: Forbidden property object `server-snippet` - ingress-nginx custom snippets are not allowed
       # - identifier: CONTAINER_CVE2021_25741_INCORRECT_SUBPATH_KEY
       #   messageOnFailure: Forbidden property object `subPath` - malicious users can gain access to files & directories outside of the volume
       # - identifier: ENDPOINTSLICE_CVE2021_25373_INCORRECT_ADDRESSES_VALUE
@@ -98,12 +98,12 @@ policies:
       #   messageOnFailure: Invalid key `hostPath` - refrain from using this mount to prevent an attack on the underlying host
       # - identifier: CONTAINERS_MISSING_KEY_ALLOWPRIVILEGEESCALATION
       #   messageOnFailure: Missing key `allowPrivilegeEscalation` - set to false to prevent attackers from exploiting escalated container privileges
-      # - identifier: CONTAINERS_INCORRECT_RESOURCES_VERBS_VALUE
-      #   messageOnFailure: Incorrect value for key `resources` and/or `verbs` - allowing containers to run the exec command can be exploited by attackers
-      # - identifier: CONTAINERS_INVALID_CAPABILITIES_VALUE
-      #   messageOnFailure: Incorrect value for key `add` - refrain from using insecure capabilities to prevent access to sensitive components
-      # - identifier: CONTAINERS_INCORRECT_KEY_HOSTPORT
-      #   messageOnFailure: Incorrect key `hostPort` - refrain from using this key to prevent insecurely exposing your workload
+      - identifier: CONTAINERS_INCORRECT_RESOURCES_VERBS_VALUE
+        messageOnFailure: Incorrect value for key `resources` and/or `verbs` - allowing containers to run the exec command can be exploited by attackers
+      - identifier: CONTAINERS_INVALID_CAPABILITIES_VALUE
+        messageOnFailure: Incorrect value for key `add` - refrain from using insecure capabilities to prevent access to sensitive components
+      - identifier: CONTAINERS_INCORRECT_KEY_HOSTPORT
+        messageOnFailure: Incorrect key `hostPort` - refrain from using this key to prevent insecurely exposing your workload
       # - identifier: CONTAINERS_INCORRECT_RUNASGROUP_VALUE_LOWGID
       #   messageOnFailure: Invalid value for key `runAsGroup` - must be greater than 999 to ensure container is running with non-root group membership
       # - identifier: CONTAINERS_INCORRECT_RUNASNONROOT_VALUE
@@ -124,4 +124,3 @@ policies:
       #   messageOnFailure: Incorrect value for key `failureThreshold` - set explicitly to control the number of retries after a probe fails (min 1)
       # - identifier: CONTAINERS_MISSING_PRESTOP_KEY
       #   messageOnFailure: Missing property object `preStop` - set to ensure graceful shutdown of the container
-  
