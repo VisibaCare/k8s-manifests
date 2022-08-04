@@ -62,8 +62,8 @@ policies:
         messageOnFailure: Incorrect value for key `hostNetwork` - running on the host's network namespace can allow a compromised container to sniff network traffic
       - identifier: CONTAINERS_INCORRECT_RUNASUSER_VALUE_LOWUID
         messageOnFailure: Incorrect value for key `runAsUser` - value should be above 9999 to reduce the likelihood that the UID is already taken
-      - identifier: CONTAINERS_INCORRECT_PATH_VALUE_DOCKERSOCKET
-        messageOnFailure: Incorrect value for key `path` - avoid mounting the docker.socket becasue it can allow container breakout
+      #- identifier: CONTAINERS_INCORRECT_PATH_VALUE_DOCKERSOCKET
+      #  messageOnFailure: Incorrect value for key `path` - avoid mounting the docker.socket becasue it can allow container breakout
       # - identifier: CONFIGMAP_CVE2021_25742_INCORRECT_SNIPPET_ANNOTATIONS_VALUE
       #   messageOnFailure: Missing property object `allow-snippet-annotations` - set it to "false" to override default behaviour
       - identifier: INGRESS_CVE2021_25742_INCORRECT_SERVER_SNIPPET_KEY
