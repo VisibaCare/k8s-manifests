@@ -5,3 +5,4 @@ resources:
   - ./telegraf_ClusterRole.yaml
   - ./telegraf_ConfigMap.yaml
   - ./telegraf_DaemonSet.yaml
+  - ./telegraf_Namespace.yaml
