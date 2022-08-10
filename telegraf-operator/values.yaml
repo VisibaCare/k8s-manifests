@@ -1,0 +1,56 @@
+replicaCount: 3
+image:
+  repository: quay.io/influxdb/telegraf-operator
+  pullPolicy: IfNotPresent
+  sidecarImage: "docker.io/library/telegraf:1.22"
+
+classes:
+  secretName: "telegraf-operator-classes"
+  default: "influxdb_v2"
+  data:
+    influxdb_v2: |+
+      [[outputs.influxdb_v2]]
+        urls = ["https://influx.visiba.cloud"]
+        token = "$TOKEN"
+        organization = "Visiba"
+        bucket = "telegraf-sidecar"
+        timeout = "5s"
+        metric_batch_size = 10000
+        metric_buffer_limit = 100000
+      [global_tags]
+        hostname = "$HOSTNAME"
+        nodename = "$NODENAME"
+  certManager:
+  enable: true
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+serviceAccount:
+  # Annotations to add to the service account
+  annotations: {}
+podSecurityContext:
+  {}
+  # fsGroup: 2000
+securityContext:
+  {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi
+nodeSelector: {}
+tolerations: []
+affinity: {}
+requireAnnotationsForSecret: false
+# allow hot reload ; disabled by default to support versions of telegraf
+# that do not support hot-reload and --watch-config flag
+hotReload: false
