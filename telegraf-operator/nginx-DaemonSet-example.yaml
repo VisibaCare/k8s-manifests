@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: nginx-deamon
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+      annotations:
+        telegraf.influxdata.com/class: "influxdb_v2"
+        telegraf.influxdata.com/inputs: |+
+          [[inputs.cpu]]
+            ## Whether to report per-cpu stats or not
+          percpu = true
+          ## Whether to report total system cpu stats or not
+          totalcpu = true
+          ## If true, collect raw CPU time metrics.
+          collect_cpu_time = false
+          ## If true, compute and report the sum of all non-idle CPU states.
+          report_active = false
+          [[inputs.disk]]
+            ## By default stats will be gathered for all mount points.
+            ## Set mount_points will restrict the stats to only the specified mount points.
+            # mount_points = ["/"]
+            ## Ignore mount points by filesystem type.
+            ignore_fs = ["tmpfs", "devtmpfs", "devfs", "overlay", "aufs", "squashfs"]
+          [[inputs.diskio]]
+          [[inputs.mem]]
+          [[inputs.net]]
+          [[inputs.processes]]
+          [[inputs.swap]]
+          [[inputs.system]]
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:alpine
