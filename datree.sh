@@ -1,5 +1,5 @@
 #!/bin/bash
-
+datree publish policies.yaml
 path="${1:-.}"
 final_exit_code=0
 
