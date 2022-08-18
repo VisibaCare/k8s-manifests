@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vc-office-web
+  namespace: vc-office-web-example-ns
+spec:
+  selector:
+    matchLabels:
+      app: vc-office-web
+  template:
+    metadata:
+      labels:
+        app: vc-office-web
+    spec:
+      containers:
+        - name: vc-office-web
+          image: visiba.azurecr.io/static-site/office-web:develop
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: regcred

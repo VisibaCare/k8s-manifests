@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vc-public-web
+  namespace: vc-public-web-example-ns
+spec:
+  selector:
+    matchLabels:
+      app: vc-public-web
+  template:
+    metadata:
+      labels:
+        app: vc-public-web
+    spec:
+      containers:
+        - name: vc-public-web
+          image: visiba.azurecr.io/static-site/public-web:develop
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: regcred
