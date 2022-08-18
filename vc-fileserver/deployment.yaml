@@ -35,4 +35,4 @@ spec:
           # configMap:
           #   name: instance-configmap
           secret:
-            secretName: instance-config
+            secretName: fileserver-instance-config
