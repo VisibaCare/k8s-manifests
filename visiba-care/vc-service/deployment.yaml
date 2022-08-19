@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vc-service
+  namespace: vc-service-example-ns
+spec:
+  selector:
+    matchLabels:
+      app: vc-service
+  template:
+    metadata:
+      labels:
+        app: vc-service
+    spec:
+      containers:
+        - name: vc-service
+          image: visiba.azurecr.io/visiba-care/vcservice:develop
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: config-volume
+              subPath: instance.json
+              mountPath: /app/Configurations/instance.json
+      imagePullSecrets:
+        - name: regcred
+      volumes:
+        - name: config-volume
+          # configMap:
+          #   name: instance-configmap
+          secret:
+            secretName: service-instance-config
