@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: vc-fileserver
-          image: visiba.azurecr.io/visiba-care/fileservice:release_4.52.0-20220622075016-77139
+          image: visiba.azurecr.io/visiba-care/fileservice:master
           resources:
             limits:
               memory: "128Mi"
@@ -32,7 +32,5 @@ spec:
         - name: regcred
       volumes:
         - name: config-volume
-          # configMap:
-          #   name: instance-configmap
           secret:
             secretName: fileserver-instance-config

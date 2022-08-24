@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: vc-office-web
-          image: visiba.azurecr.io/static-site/office-web:develop
+          image: visiba.azurecr.io/static-site/office-web:latest
           resources:
             limits:
               memory: "128Mi"

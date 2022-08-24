@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vc-service
-  namespace: vc-service-example-ns
+  name: vc-embassy
+  namespace: vc-embassy-example-ns
 spec:
   selector:
     matchLabels:
-      app: vc-service
+      app: vc-embassy
   template:
     metadata:
       labels:
-        app: vc-service
+        app: vc-embassy
     spec:
       containers:
-        - name: vc-service
-          image: visiba.azurecr.io/visiba-care/vcservice:latest
+        - name: vc-embassy
+          image: visiba.azurecr.io/visiba-care/embassy:latest
           resources:
             limits:
-              memory: "1G"
+              memory: "512Mi"
               cpu: "500m"
             requests:
               memory: "64Mi"
@@ -32,7 +32,5 @@ spec:
         - name: regcred
       volumes:
         - name: config-volume
-          # configMap:
-          #   name: instance-configmap
           secret:
-            secretName: service-instance-config
+            secretName: embassy-instance-config

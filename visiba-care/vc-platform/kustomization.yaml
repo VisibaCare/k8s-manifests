@@ -4,3 +4,4 @@ resources:
   - ../vc-fileserver
   - ../vc-office-web
   - ../vc-service
+  - ../vc-embassy
