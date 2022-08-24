@@ -1,0 +1,74 @@
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  path: /
+  pathType: Prefix
+  hosts:
+    - grafana.visiba.cloud
+  tls:
+    - secretName: grafana-tls
+      hosts:
+        - grafana.visiba.cloud
+
+persistence:
+  type: pvc
+  enabled: true
+  accessModes:
+    - ReadWriteOnce
+  size: 10Gi
+  finalizers:
+    - kubernetes.io/pvc-protection
+
+admin-password: $ADMIN_PASSWORD
+
+grafana.ini:
+  analytics:
+    check_for_updates: true
+  auth.azuread:
+    auth_url: https://login.microsoftonline.com/77a306b9-9fff-459c-9161-73c64be88339/oauth2/v2.0/authorize
+    client_id: $ID
+    client_secret: $SECRET
+    enabled: true
+    name: Azure AD
+    scopes: openid email profile
+    token_url: https://login.microsoftonline.com/77a306b9-9fff-459c-9161-73c64be88339/oauth2/v2.0/token
+  grafana_net:
+    url: https://grafana.net
+  log:
+    mode: console
+  paths:
+    data: /var/lib/grafana/
+    logs: /var/log/grafana
+    plugins: /var/lib/grafana/plugins
+    provisioning: /etc/grafana/provisioning
+  security:
+    allow_embedding: true
+    cookie_samesite: none
+    cookie_secure: true
+  server:
+    root_url: https://grafana.visiba.cloud/
+  alerting:
+    enabled: false
+  unified_alerting:
+    enabled: true
+
+podAnnotations:
+  telegraf.influxdata.com/class: "influxdb_v2"
+  telegraf.influxdata.com/inputs: |+
+    [[inputs.cpu]]
+      percpu = true
+      totalcpu = true
+      collect_cpu_time = false
+      report_active = false
+    [[inputs.disk]]
+      ignore_fs = ['tmpfs', 'devtmpfs', 'devfs', 'overlay', 'aufs', 'squashfs']
+      mount_points = ["/"]
+    [[inputs.diskio]]
+    [[inputs.mem]]
+    [[inputs.net]]
+    [[inputs.processes]]
+    [[inputs.swap]]
+    [[inputs.system]]

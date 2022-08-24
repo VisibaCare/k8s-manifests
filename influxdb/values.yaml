@@ -1,0 +1,16 @@
+# Annotations to be added to InfluxDB pods
+podAnnotations:
+  telegraf.influxdata.com/inputs: |+
+    [[inputs.cpu]]
+      percpu = true
+      totalcpu = true
+      collect_cpu_time = false
+      report_active = false
+    [[inputs.disk]]
+      ignore_fs = ['tmpfs', 'devtmpfs', 'devfs', 'overlay', 'aufs', 'squashfs']
+    [[inputs.diskio]]
+    [[inputs.mem]]
+    [[inputs.net]]
+    [[inputs.processes]]
+    [[inputs.swap]]
+    [[inputs.system]]
