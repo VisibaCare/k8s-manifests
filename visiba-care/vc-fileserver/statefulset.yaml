@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: vc-fileserver
+  namespace: vc-fileserver
+spec:
+  selector:
+    matchLabels:
+      app: vc-fileserver
+  serviceName: vc-fileserver
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: vc-fileserver
+    spec:
+      containers:
+      - name: vc-fileserver
+        image: visiba.azurecr.io/visiba-care/fileservice:latest
+        ports:
+        - containerPort: 80
+          name: web
+        volumeMounts:
+          - name: config-volume
+            subPath: instance.json
+            mountPath: /app/Configurations/instance.json
