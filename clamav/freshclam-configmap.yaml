@@ -1,0 +1,24 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: clamav-freshclam
+  namespace: clamav
+data:
+  freshclam.conf: |
+      ###############
+      # General
+      ###############
+      # DatabaseDirectory /data
+      # UpdateLogFile /dev/stdout
+      LogTime yes
+      # CUSTOM: Use pid file in tmp
+      # PidFile /tmp/freshclam.pid
+      # CUSTOM: Set defined user
+      #DatabaseOwner 2000
+      ###############
+      # Updates
+      ###############
+      DatabaseMirror database.clamav.net
+      ScriptedUpdates yes
+      NotifyClamd /etc/clamav/clamd.conf
+      Bytecode yes
