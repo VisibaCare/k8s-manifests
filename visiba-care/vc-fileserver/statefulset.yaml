@@ -24,3 +24,7 @@ spec:
           - name: config-volume
             subPath: instance.json
             mountPath: /app/Configurations/instance.json
+      volumes:
+        - name: config-volume
+          secret:
+            secretName: fileserver-instance-config
