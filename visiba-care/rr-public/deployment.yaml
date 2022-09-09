@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rr-public-web
+  namespace: rr-public-web-example-ns
+spec:
+  selector:
+    matchLabels:
+      app: rr-public-web
+  template:
+    metadata:
+      labels:
+        app: rr-public-web
+    spec:
+      containers:
+        - name: rr-public-web
+          image: visiba.azurecr.io/static-site/redrobin-web:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: regcred
