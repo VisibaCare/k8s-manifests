@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rr-public-web
-  namespace: rr-public-web-example-ns
+  name: vc-patient-web
+  namespace: vc-patient-web-example-ns
 spec:
   selector:
     matchLabels:
-      app: rr-public-web
+      app: vc-patient-web
   template:
     metadata:
       labels:
-        app: rr-public-web
+        app: vc-patient-web
     spec:
       containers:
-        - name: rr-public-web
-          image: visiba.azurecr.io/static-site/redrobin-web:latest
+        - name: vc-patient-web
+          image: visiba.azurecr.io/static-site/public-web:latest
           resources:
             limits:
               memory: "128Mi"

@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: vc-office-web
-  namespace: vc-office-web-example-ns
+  name: rr-public-web
+  namespace: rr-public-web-example-ns
 spec:
   selector:
-    app: vc-office-web
+    app: rr-public-web
   ports:
   - port: 80
     targetPort: 80
