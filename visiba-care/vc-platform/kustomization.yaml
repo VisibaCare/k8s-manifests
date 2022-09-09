@@ -5,5 +5,5 @@ resources:
   - ../vc-office-web
   - ../vc-service
   - ../vc-embassy
-  # - ../rr-public-web
+  - ../rr-public-web
   # - ../vc-patient-web
