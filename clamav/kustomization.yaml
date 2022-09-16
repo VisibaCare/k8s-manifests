@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
   - deployment.yaml
   - service.yaml
-  - clamd-configmap.yaml
-  - freshclam-configmap.yaml
+  # - clamd-configmap.yaml
+  # - freshclam-configmap.yaml
