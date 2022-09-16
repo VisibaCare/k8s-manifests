@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: clamav
-          image: clamav/clamav:0.105
+          image: mkodockx/docker-clamav:alpine
           resources:
             # limits:
             #   memory: "2G"
@@ -23,7 +23,7 @@ spec:
             #   memory: "64Mi"
             #   cpu: "250m"
           ports:
-            - name: clamavport 
+            - name: clamavport
               containerPort: 3310
               protocol: TCP
           livenessProbe:
@@ -35,14 +35,14 @@ spec:
               port: clamavport
             initialDelaySeconds: 90
           volumeMounts:
-          - name: freshclam-config-volume
-            mountPath: /etc/clamav/freshclam.conf
-            subPath: freshclam.conf
-          - name: clamd-config-volume
-            mountPath: /etc/clamav/clamd.conf
-            subPath: clamd.conf
-          - name: clamav-data
-            mountPath: /var/lib/clamav
+            - name: freshclam-config-volume
+              mountPath: /mnt/freshclam.conf
+              subPath: freshclam.conf
+            - name: clamd-config-volume
+              mountPath: /mnt/clamd.conf
+              subPath: clamd.conf
+            - name: clamav-data
+              mountPath: /var/lib/clamav
       volumes:
         - name: freshclam-config-volume
           configMap:
