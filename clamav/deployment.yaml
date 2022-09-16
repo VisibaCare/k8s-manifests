@@ -16,13 +16,6 @@ spec:
         - name: clamav
           image: clamav/clamav:0.105.0
           resources:
-          {}
-            # limits:
-            #   memory: "2G"
-            #   cpu: "500m"
-            # requests:
-            #   memory: "64Mi"
-            #   cpu: "250m"
           ports:
             - name: clamavport
               containerPort: 3310
