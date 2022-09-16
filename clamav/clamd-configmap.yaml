@@ -2,7 +2,6 @@ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: clamav-clamd
-  namespace: clamav
 data:
   clamd.conf: |
     ###############
