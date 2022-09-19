@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vc-fileserver
-  namespace: vc-fileserver
 spec:
   selector:
     matchLabels:
@@ -14,7 +13,7 @@ spec:
     spec:
       containers:
         - name: vc-fileserver
-          image: visiba.azurecr.io/visiba-care/fileservice:master
+          image: visiba.azurecr.io/visiba-care/fileservice:latest
           resources:
             limits:
               memory: "128Mi"

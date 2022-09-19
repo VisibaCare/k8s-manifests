@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vc-office-web
-  namespace: vc-office-web-example-ns
 spec:
   selector:
     matchLabels:

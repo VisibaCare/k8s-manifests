@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vc-patient-web
-  namespace: vc-patient-web-example-ns
 spec:
   selector:
     matchLabels:
@@ -24,5 +23,5 @@ spec:
               cpu: "250m"
           ports:
             - containerPort: 80
-      imagePullSecrets:
-        - name: regcred
+      # imagePullSecrets:
+      #   - name: regcred

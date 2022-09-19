@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vc-embassy
-  namespace: vc-embassy-example-ns
 spec:
   selector:
     matchLabels:

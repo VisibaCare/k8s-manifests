@@ -1,19 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vc-patient-web
-  namespace: vc-patient-web-example-ns
+  name: rr-public-web
 spec:
   selector:
     matchLabels:
-      app: vc-patient-web
+      app: rr-public-web
   template:
     metadata:
       labels:
-        app: vc-patient-web
+        app: rr-public-web
     spec:
       containers:
-        - name: vc-patient-web
+        - name: rr-public-web
           image: visiba.azurecr.io/static-site/public-web:latest
           resources:
             limits:

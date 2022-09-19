@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vc-service
-  namespace: vc-service-example-ns
 spec:
   selector:
     matchLabels:
