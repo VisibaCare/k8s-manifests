@@ -6,4 +6,4 @@ resources:
   - ../vc-service
   - ../vc-embassy
   - ../rr-public-web
-  # - ../vc-patient-web
+  - ../vc-patient-web
