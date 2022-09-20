@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: rr-public-web
-          image: visiba.azurecr.io/static-site/public-web:latest
+          image: visiba.azurecr.io/static-site/redrobin-web:latest
           resources:
             limits:
               memory: "128Mi"
