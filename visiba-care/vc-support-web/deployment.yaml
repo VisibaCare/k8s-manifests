@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vc-support-web
+spec:
+  selector:
+    matchLabels:
+      app: vc-support-web
+  template:
+    metadata:
+      labels:
+        app: vc-support-web
+    spec:
+      containers:
+        - name: vc-support-web
+          image: visiba.azurecr.io/static-site/vc-support-web:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+          ports:
+            - containerPort: 80
+      # imagePullSecrets:
+      #   - name: regcred

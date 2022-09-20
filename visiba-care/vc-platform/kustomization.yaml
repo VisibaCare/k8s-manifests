@@ -7,3 +7,4 @@ resources:
   - ../vc-embassy
   - ../rr-public-web
   - ../vc-patient-web
+  - ../vc-support-web
