@@ -30,13 +30,13 @@ spec:
           livenessProbe:
             httpGet:
               path: /health
-              port: 443
-              scheme: HTTPS
+              port: 80
+              scheme: HTTP
           readinessProbe:
             httpGet:
               path: /health
-              port: 443
-              scheme: HTTPS
+              port: 80
+              scheme: HTTP
       imagePullSecrets:
         - name: regcred
       volumes:
