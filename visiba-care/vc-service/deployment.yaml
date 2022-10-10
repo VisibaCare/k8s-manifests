@@ -31,12 +31,12 @@ spec:
             httpGet:
               path: /health
               port: 80
-              scheme: HTTP
+              scheme: HTTPS
           readinessProbe:
             httpGet:
               path: /health
               port: 80
-              scheme: HTTP
+              scheme: HTTPS
       imagePullSecrets:
         - name: regcred
       volumes:
