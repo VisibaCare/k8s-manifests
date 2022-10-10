@@ -27,6 +27,16 @@ spec:
             - name: config-volume
               subPath: instance.json
               mountPath: /app/Configurations/instance.json
+              livenessProbe:
+                httpGet:
+                  path: /health
+                  port: 443
+                  scheme: HTTPS
+              readinessProbe:
+                httpGet:
+                  path: /health
+                  port: 443
+                  scheme: HTTPS
       imagePullSecrets:
         - name: regcred
       volumes:
