@@ -32,26 +32,17 @@ spec:
               path: /health
               port: 80
               scheme: HTTP
-              httpHeaders:
-                - name: X-Forwarded-Proto
-                  value: https
             failureThreshold: 100
           livenessProbe:
             httpGet:
               path: /health
               port: 80
               scheme: HTTP
-              httpHeaders:
-                - name: X-Forwarded-Proto
-                  value: https
           readinessProbe:
             httpGet:
               path: /health
               port: 80
               scheme: HTTP
-              httpHeaders:
-                - name: X-Forwarded-Proto
-                  value: https
       imagePullSecrets:
         - name: regcred
       volumes:
