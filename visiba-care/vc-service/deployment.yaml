@@ -27,6 +27,14 @@ spec:
             - name: config-volume
               subPath: instance.json
               mountPath: /app/Configurations/instance.json
+          startupProbe:
+            httpGet:
+              path: /health
+              port: 80
+              scheme: HTTP
+              httpHeaders:
+                - name: X-Forwarded-Proto
+                  value: https
           livenessProbe:
             httpGet:
               path: /health
