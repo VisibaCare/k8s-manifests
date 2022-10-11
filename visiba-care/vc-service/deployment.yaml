@@ -35,6 +35,7 @@ spec:
               httpHeaders:
                 - name: X-Forwarded-Proto
                   value: https
+              failureThreshold: 100
           livenessProbe:
             httpGet:
               path: /health
