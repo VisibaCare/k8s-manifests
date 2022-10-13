@@ -38,13 +38,13 @@ spec:
               path: /health
               port: 80
               scheme: HTTP
-              timeoutSeconds: 3
+            timeoutSeconds: 3
           readinessProbe:
             httpGet:
               path: /health
               port: 80
               scheme: HTTP
-              timeoutSeconds: 3
+            timeoutSeconds: 3
       imagePullSecrets:
         - name: regcred
       volumes:
