@@ -4,4 +4,4 @@ metadata:
   name: rabbit
 spec:
   replicas: 3
-  image: 3.9.24-management
+  image: visiba.azurecr.io/visiba/rabbitmq-management:3.11.2
