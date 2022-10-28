@@ -1,0 +1,7 @@
+apiVersion: rabbitmq.com/v1beta1
+kind: RabbitmqCluster
+metadata:
+  name: rabbit
+spec:
+  replicas: 3
+  image: 3.9.24-management
