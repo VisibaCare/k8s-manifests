@@ -100,7 +100,7 @@ override_config:
   toml: |
    [global_tags]
    ## Change this to the cluster this helm chart is applied to.
-   cluster = "k8s-mgmt-observability-01" 
+   cluster = "k8s-dev-vc-01" 
    [agent]
    collection_jitter = "0s"
    debug = false
@@ -120,7 +120,7 @@ override_config:
      bucket = "telegraf-kubernetes"
      insecure_skip_verify = false
      organization = "Visiba"
-     token = "8zU2wHcunxrZm1Ld-GqndhekOtNs3kz34a8dyd11veUAEKW6zQHRi08nU45yJwycLu9Wj5Jd3iq5ocZqvJFqZg=="
+     token = "$TOKEN"
      urls = [
        "https://influx.visiba.cloud"
      ]
