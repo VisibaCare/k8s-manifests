@@ -8,3 +8,4 @@ resources:
   - ../rr-public-web
   - ../vc-patient-web
   - ../vc-support-web
+  - ../vc-patient-web-old
