@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vc-patient-web
+spec:
+  selector:
+    matchLabels:
+      app: vc-patient-web
+  template:
+    metadata:
+      labels:
+        app: vc-patient-web
+    spec:
+      containers:
+        - name: vc-patient-web
+          image: visiba.azurecr.io/static-site/public-web:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+          ports:
+            - containerPort: 80
+      # imagePullSecrets:
+      #   - name: regcred
