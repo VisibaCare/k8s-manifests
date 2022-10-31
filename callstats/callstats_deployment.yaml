@@ -22,12 +22,12 @@ spec:
     spec:
       containers:
         - name: callstats
-          image: visibacontainers.azurecr.io/visiba/callstats:80701
+          image: visibacontainers.azurecr.io/visiba/callstats:86461
           imagePullPolicy: Always
           resources:
             limits:
-              cpu: "2"
-              memory: 4Gi
+              cpu: 2000m
+              memory: 2000Mi
             requests:
               cpu: 250m
               memory: 250Mi
