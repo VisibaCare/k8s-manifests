@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vc-patient-web
+  name: vc-patient-web-old
 spec:
   selector:
     matchLabels:
-      app: vc-patient-web
+      app: vc-patient-web-old
   template:
     metadata:
       labels:
-        app: vc-patient-web
+        app: vc-patient-web-old
     spec:
       containers:
-        - name: vc-patient-web
-          image: visiba.azurecr.io/static-site/public-web:latest
+        - name: vc-patient-web-old
+          image: visiba.azurecr.io/static-site/public-web-old:latest
           resources:
             limits:
               memory: "128Mi"
