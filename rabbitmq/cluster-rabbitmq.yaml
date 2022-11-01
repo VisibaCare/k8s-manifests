@@ -8,3 +8,6 @@ spec:
   image: visiba.azurecr.io/visiba/rabbitmq-management:3.11.2
   # imagePullSecrets:
   # - name: regcred
+  rabbitmq:
+    additionalPlugins:
+      - rabbitmq_delayed_message_exchange
