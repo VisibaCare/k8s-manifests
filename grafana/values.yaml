@@ -22,15 +22,14 @@ persistence:
   finalizers:
     - kubernetes.io/pvc-protection
 
-admin-password: $ADMIN_PASSWORD
+#admin-password: $ADMIN_PASSWORD
+envFromSecret: grafana-env
 
 grafana.ini:
   analytics:
     check_for_updates: true
   auth.azuread:
     auth_url: https://login.microsoftonline.com/77a306b9-9fff-459c-9161-73c64be88339/oauth2/v2.0/authorize
-    client_id: $ID
-    client_secret: $SECRET
     enabled: true
     name: Azure AD
     scopes: openid email profile
